@@ -6,6 +6,11 @@ import { useSelector } from 'react-redux';
 import Loader from 'react-js-loader'
 import { useFetchContactsQuery, useDeleteContactMutation } from './redux/contacts/contacts-operations'
 import { getFilter } from './redux/contacts/contact-selectors';
+import { Routes, Route } from 'react-router-dom';
+import Navigation from 'component/Navigation';
+import HomeContacts from './veiw/HomeContacts'
+import Register from './veiw/RegisterContacts'
+import Login from './veiw/LoginContacts'
 
 
 const App = () => {
@@ -21,15 +26,27 @@ const App = () => {
       return visibleContacts;
   }
      return (     
-         <Container>
-         <h1>Phonebook</h1>
-         <Form contacts={data}/>
-         <h2>Contacts</h2>
-         <Filter /> 
-         {isFetching? <Spinner>
-         <Loader type="bubble-top" bgColor={"#000"} title={"loading..."} color={'#FFFFFF'} size={50} />
-         </Spinner> : data && <ContactList contacts={getVisibleContacts()} ondeleteContact={deleteContact} />}
-         </Container>
+      //    <Container>
+      //    <h1>Phonebook</h1>
+      //    <Form contacts={data}/>
+      //    <h2>Contacts</h2>
+      //    <Filter />
+      //    {isFetching? <Spinner>
+      //    <Loader type="bubble-top" bgColor={"#000"} title={"loading..."} color={'#FFFFFF'} size={50} />
+      //    </Spinner> : data && <ContactList contacts={getVisibleContacts()} ondeleteContact={deleteContact} />}
+      //  </Container>
+       <>
+       {/* <Navigation /> */}
+       <Routes>
+           <Route path="/" element={<Navigation />}>
+             <Route index element={<HomeContacts />} />
+             <Route path='register' element={<Register />} />
+             <Route path='login' element={<Login/>}/>
+         </Route>
+        
+       </Routes>
+       </>
+      //  
   )
 }
 
