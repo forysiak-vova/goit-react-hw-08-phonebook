@@ -8,9 +8,10 @@ import { useFetchContactsQuery, useDeleteContactMutation } from './redux/contact
 import { getFilter } from './redux/contacts/contact-selectors';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from 'component/Navigation';
-import HomeContacts from './veiw/HomeContacts'
-import Register from './veiw/RegisterContacts'
-import Login from './veiw/LoginContacts'
+import HomeContacts from './veiw/HomeContacts';
+import Register from './veiw/RegisterContacts';
+import Login from './veiw/LoginContacts';
+import AppBar from './component/AppBar'
 
 
 const App = () => {
@@ -36,13 +37,13 @@ const App = () => {
       //    </Spinner> : data && <ContactList contacts={getVisibleContacts()} ondeleteContact={deleteContact} />}
       //  </Container>
        <>
-       {/* <Navigation /> */}
+       <AppBar />
        <Routes>
-           <Route path="/" element={<Navigation />}>
-             <Route index element={<HomeContacts />} />
+           {/* <Route path="/" element={<AppBar />}> */}
+             <Route path="/" element={<HomeContacts />} />
              <Route path='register' element={<Register />} />
              <Route path='login' element={<Login/>}/>
-         </Route>
+         {/* </Route> */}
         
        </Routes>
        </>
