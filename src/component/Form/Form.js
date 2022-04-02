@@ -26,7 +26,7 @@ const Form = ({contacts}) => {
    
   const handelSubmit = e => {
      e.preventDefault();
-
+//  createContact({name,number}).then(console.log)
          const ReturnName = contacts.find(contact => contact.name === name);
 
     if (ReturnName) {
