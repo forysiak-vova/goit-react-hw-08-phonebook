@@ -8,7 +8,6 @@ const Navigation = () => {
    return (
       <>
          <NavLink to="/">Home</NavLink>
-
          {isLoggedIn && (
             <NavLink to='/contacts'>Contacts</NavLink>
          )}
