@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {register} from '../../redux/auth/auth-operations'
+import { register } from '../../redux/auth/auth-operations'
+import { RegisterForm } from './Register.styles';
+import {TextField} from '@mui/material';
 
 const Register = () => {
    const dispatch = useDispatch();
@@ -37,38 +39,44 @@ const Register = () => {
    }
    
    return (
-      <form onSubmit={handelSubmit}>
+      <RegisterForm onSubmit={handelSubmit}>
          <label>
-            <h4>name</h4>
-            <input
+            <TextField
+                label='name'
+               variant="standard"
                type='name'
                name="name"
                  required
                value={name}
                onChange={handelChange}
+                sx={{mt: '1rem', width: '35ch'}}
              />
          </label>
          <label>
-              <h4>email</h4>
-              <input
+            <TextField
+                label='email'
+               variant="standard"
                type='email'
                name="email"
                value={email}
                onChange={handelChange}
+                sx={{mt: '1rem', width: '35ch'}}
             />
          </label>
          <label>
-             <h4>password</h4>
-            <input
+            <TextField
+                label='password'
+               variant="standard"
                type='password'
                name='password'
              value={password}
-             onChange={handelChange}
+               onChange={handelChange}
+                sx={{mt: '1rem', width: '35ch'}}
             />
          </label>
         
          <button type='submit'>sing up</button>
-      </form>
+      </RegisterForm>
    )
    
 }

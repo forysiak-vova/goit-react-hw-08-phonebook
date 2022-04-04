@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {login} from '../../redux/auth/auth-operations'
+import { login } from '../../redux/auth/auth-operations'
+import { LoginForm } from './Login.styles';
+import {TextField} from '@mui/material';
 
 const Login = () => {
    const dispatch = useDispatch();
@@ -31,29 +33,33 @@ const [password, setPassword] = useState('')
    }
    
    return (
-      <form onSubmit={handelSubmit}>
+      <LoginForm onSubmit={handelSubmit}>
          <label>
-            <h4>email</h4>
-            <input
+            <TextField
+               label='email'
+               variant="standard"
                type='email'
                name="email"
                required
                value={email}
                onChange={handelChange}
+                sx={{ width: '35ch'}}
             />
          </label>
          <label>
-            <h4>password</h4>
-            <input
+            <TextField
+                label='password'
+               variant="standard"
                type='password'
                name="password"
                required
                value={password}
-                 onChange={handelChange}
+               onChange={handelChange}
+               sx={{mt: '1rem', width: '35ch'}}
             />
-            <button type="submit">login</button>
          </label>
-      </form>
+            <button type="submit">login</button>
+      </LoginForm>
    )
 }
 

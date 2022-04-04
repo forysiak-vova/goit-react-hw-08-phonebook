@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import HomeContacts from 'veiw/HomeContacts';
 import Register from 'veiw/RegisterContacts';
 import Login from 'veiw/LoginContacts';
-import AppBar from 'component/AppBar';
+import AppBarr from 'component/AppBar';
 import Contacts from 'veiw/Contacts';
 import { fetchCurrentUser } from './redux/auth/auth-operations';
 import PrivateRoute from 'component/UserMenu/PrivateRoute';
@@ -14,15 +14,14 @@ import authSelectors from './redux/auth/auth-selectors'
 
 const App = () => {
   const dispatch = useDispatch();
-  const isFetchingCurrentUse = useSelector(authSelectors.getFetchingCurrentUser)
-  console.log(isFetchingCurrentUse);
+  const isFetchingCurrentUse = useSelector(authSelectors.getFetchingCurrentUser);
   useEffect(() => {
     dispatch(fetchCurrentUser())
   }, [dispatch])
      return (     
        isFetchingCurrentUse ? <h1>skeleton</h1> : (
          <>
-       <AppBar />
+       <AppBarr />
            <Routes>
                {/* <Route path="/" element={<AppBar />}> */}
               <Route path="/"

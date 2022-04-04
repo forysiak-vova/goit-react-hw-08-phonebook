@@ -4,8 +4,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-     box-shadow: 1px 7px 10px 10px rgb(0 0 0 / 20%);
-    max-width: 500px;
+    //  box-shadow: 1px 7px 10px 10px rgb(0 0 0 / 20%);
+    // max-width: 500px;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
