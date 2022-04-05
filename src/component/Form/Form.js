@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Label, Input, Button} from './Form.styles'
+import { Label, Formik} from './Form.styles'
 import { useCreateContactMutation } from 'redux/contacts/contacts-operations';
 import PropTypes from 'prop-types';
-import {TextField} from '@mui/material';
+import { TextField } from '@mui/material';
+import{ Button } from '@mui/material';
 
 
 const Form = ({contacts}) => {
@@ -39,7 +40,7 @@ const Form = ({contacts}) => {
      setNumber('')
    };
       return (
-         <form onSubmit={handelSubmit}>
+         <Formik onSubmit={handelSubmit}>
             <Label>
            
                <TextField
@@ -68,8 +69,8 @@ const Form = ({contacts}) => {
                   sx={{mt: '1rem', width: '35ch'}}
            />
          </Label>
-            <Button type='submit'>Add Contact</Button>
-      </form>
+            <Button variant="text" sx = {{mt: '1.5rem'}} type='submit'>Add Contact</Button>
+      </Formik>
       )
    
 }

@@ -7,14 +7,26 @@ import {store, persistor} from './redux/store'
 import { Provider } from "react-redux";
 import { HashRouter } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react';
+import { ThemeProvider, createTheme } from '@mui/material';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#0000FF'
+    },
+   
+  }
+})
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-      <HashRouter>
+        <HashRouter>
+          <ThemeProvider theme={theme}>
         <App />
+          </ThemeProvider>
         </HashRouter>
         </PersistGate>
     </Provider>

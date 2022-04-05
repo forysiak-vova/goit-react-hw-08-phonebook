@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { register } from '../../redux/auth/auth-operations'
 import { RegisterForm } from './Register.styles';
 import {TextField} from '@mui/material';
+import { Button } from '@mui/material';
 
 const Register = () => {
    const dispatch = useDispatch();
@@ -75,7 +76,7 @@ const Register = () => {
             />
          </label>
         
-         <button type='submit'>sing up</button>
+         <Button variant="text" sx = {{mt: '1.5rem'}} type='submit'>sing up</Button>
       </RegisterForm>
    )
    

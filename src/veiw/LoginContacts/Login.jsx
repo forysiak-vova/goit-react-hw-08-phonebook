@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from '../../redux/auth/auth-operations'
 import { LoginForm } from './Login.styles';
-import {TextField} from '@mui/material';
+import { TextField } from '@mui/material';
+import{ Button } from '@mui/material';
 
 const Login = () => {
    const dispatch = useDispatch();
@@ -58,7 +59,7 @@ const [password, setPassword] = useState('')
                sx={{mt: '1rem', width: '35ch'}}
             />
          </label>
-            <button type="submit">login</button>
+            <Button variant="text" sx = {{mt: '1.5rem'}} type="submit">login</Button>
       </LoginForm>
    )
 }

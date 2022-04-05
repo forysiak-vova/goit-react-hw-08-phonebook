@@ -6,6 +6,7 @@ import Loader from 'react-js-loader'
 import { useSelector } from 'react-redux';
 import { useFetchContactsQuery, useDeleteContactMutation } from 'redux/contacts/contacts-operations'
 import { getFilter } from 'redux/contacts/contact-selectors';
+import{ Typography} from '@mui/material';
 
 const Contacts = () => {
   const { data, isFetching } = useFetchContactsQuery();
@@ -22,9 +23,9 @@ const Contacts = () => {
 
    return (
               <Container>
-         <h1>Phonebook</h1>
+         <Typography variant='h2'>Phonebook</Typography>
          <Form contacts={data}/>
-         <h2>Contacts</h2>
+         <Typography variant='h2'>Contacts</Typography>
          <Filter />
          {isFetching? <Spinner>
          <Loader type="bubble-top" bgColor={"#000"} title={"loading..."} color={'#FFFFFF'} size={50} />

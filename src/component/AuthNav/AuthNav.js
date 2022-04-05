@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { ContainerAuthNav } from './AuthNav.styles';
+import { Link } from './AuthNav.styles';
 import{ Typography} from '@mui/material';
 
 const AuthNav = () => {
@@ -9,9 +9,10 @@ const AuthNav = () => {
          <Typography
             variant='h6'
             sx={{ flexGrow: 1 }}
+            component='div'
          >
-         <NavLink to="/register">Register</NavLink>
-         <NavLink to="/login">Login</NavLink>
+         <Link to="/register" style={{marginRight: '15px'}}>Register</Link>
+         <Link to="/login">Login</Link>
          </Typography>
          
          <Outlet />

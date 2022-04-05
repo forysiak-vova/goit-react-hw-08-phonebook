@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
-import {ContactName,Item,Button} from './ContactItem.styles'
+import { ContactName, Item } from './ContactItem.styles';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import{ Typography} from '@mui/material';
 
 function ContactItem({id, name, number, func}) { 
    return (
       <Item>
-               <ContactName> {name}</ContactName>
-         <p>( {number} )</p>
-         <Button onClick={() => func(id)}>
+               <Typography variant='h5' component='p' sx={{mt: '1rem'}}> {name}</Typography>
+         <Typography variant='h5' component='p' sx={{mt: '1rem'}}> {number} </Typography>
+         <Button  variant="outlined" sx={{mt: '1rem'}} startIcon={<DeleteIcon />} size="small" onClick={() => func(id)}>
             delete
          </Button>
       </Item>

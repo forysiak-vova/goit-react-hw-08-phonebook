@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import authSelectors from 'redux/auth/auth-selectors';
 import { ContainerUserMenu, SpanUserMenu } from './UserMenu.styles';
 import { logOut } from 'redux/auth/auth-operations';
+import{ Stack, Button } from '@mui/material';
 // import { NavLink } from 'react-router-dom';
 
 const UserMenu = () => {
@@ -14,7 +15,9 @@ const UserMenu = () => {
            <>
       <ContainerUserMenu>
             <SpanUserMenu>Hello {name}</SpanUserMenu>
-         <button type="button" onClick={() => dispatch(logOut())}>Log Out</button>
+             <Stack spacing={2} direction="row">
+            <Button type="button" variant="contained" onClick={() => dispatch(logOut())}>Log Out</Button>
+             </Stack>
       </ContainerUserMenu>
       </>
     

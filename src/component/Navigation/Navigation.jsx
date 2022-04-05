@@ -2,25 +2,31 @@ import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import authSelectors from 'redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
-import{ Typography} from '@mui/material';
+import { Typography } from '@mui/material';
+import {LinkHome} from './Navigation.styles'
 
 const Navigation = () => {
    const isLoggedIn = useSelector(authSelectors.getisLoggedIn)
    return (
       <>
-         <div>
-            <Typography
-            variant='h6'
-            >
+         <Typography
+             variant='h6'
+            sx={{ displat: 'flex', }}
+            component='div'
+         >
+          
                
-         <NavLink to="/">Home</NavLink>
-          </Typography>
+         <LinkHome to="/" style={{margin: 15}}>Home</LinkHome>
+       
        
       
-         {isLoggedIn && (
-            <NavLink to='/contacts'>Contacts</NavLink>
+            {isLoggedIn && (
+             
+
+                  <LinkHome to='/contacts'>Contacts</LinkHome>
+               
          )}
-        </div>
+        </Typography>
          <Outlet/>
          
       </>
