@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import { Link } from './AuthNav.styles';
 import{ Typography} from '@mui/material';
 

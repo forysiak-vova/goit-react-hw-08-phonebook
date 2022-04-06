@@ -2,7 +2,7 @@ import Form from 'component/Form';
 import ContactList from 'component/ContactList';
 import Filter from 'component/Filter'
 import { Container, Spinner } from 'App.styles'
-import Loader from 'react-js-loader'
+import Loader from 'react-js-loader';
 import { useSelector } from 'react-redux';
 import { useFetchContactsQuery, useDeleteContactMutation } from 'redux/contacts/contacts-operations'
 import { getFilter } from 'redux/contacts/contact-selectors';

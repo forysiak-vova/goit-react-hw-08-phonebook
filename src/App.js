@@ -1,15 +1,28 @@
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import HomeContacts from 'veiw/HomeContacts';
-import Register from 'veiw/RegisterContacts';
-import Login from 'veiw/LoginContacts';
 import AppBarr from 'component/AppBar';
-import Contacts from 'veiw/Contacts';
 import { fetchCurrentUser } from './redux/auth/auth-operations';
 import PrivateRoute from 'component/UserMenu/PrivateRoute';
 import PublicRoute from 'component/UserMenu/PublicRoute';
 import authSelectors from './redux/auth/auth-selectors'
+import { Toaster } from 'react-hot-toast';
+import Loader from 'react-js-loader';
+import { lazy, Suspense } from "react";
+
+
+const HomeContacts = lazy(() =>
+  import("veiw/HomeContacts" /* webpackChunkName: "home-page" */)
+);
+const Contacts = lazy(() =>
+  import("veiw/Contacts" /* webpackChunkName: "contacts-page" */)
+);
+const Login = lazy(() =>
+  import("veiw/LoginContacts" /* webpackChunkName: "login-page" */)
+);
+const Register = lazy(() =>
+  import("veiw/RegisterContacts" /* webpackChunkName: "register-page" */)
+);
 
 
 const App = () => {
@@ -19,9 +32,10 @@ const App = () => {
     dispatch(fetchCurrentUser())
   }, [dispatch])
      return (     
-       isFetchingCurrentUse ? <h1>skeleton</h1> : (
+       isFetchingCurrentUse ? <Loader type="hourglass" bgColor={"#000"} title={"loading..."} color={'#FFFFFF'} size={100}/> : (
          <>
-       <AppBarr />
+           <AppBarr />
+           <Suspense fallback={<Loader type="hourglass" bgColor={"#000"} title={"loading..."} color={'#FFFFFF'} size={100}/>}>
            <Routes>
                {/* <Route path="/" element={<AppBar />}> */}
               <Route path="/"
@@ -62,11 +76,13 @@ const App = () => {
          
          {/* </Route> */}
         
-       </Routes>
+             </Routes>
+             </Suspense>
+       <Toaster position="top-right"/>
        </>
       // 
        ) 
-  )
+     )
 }
 
 export default App;

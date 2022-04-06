@@ -16,7 +16,8 @@ const AppBarr = () => {
              display: 'flex',
                alignItems: 'center',
                justifyContent: 'space-between',
-              textAlign: 'end',
+               textAlign: 'end',
+             
          }}>
      
          <Navigation />
