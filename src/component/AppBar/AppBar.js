@@ -9,6 +9,7 @@ import{ AppBar, Toolbar} from '@mui/material';
 const AppBarr = () => {
    const isLoggedIn = useSelector(authSelectors.getisLoggedIn)
    return (
+      
   
       <AppBar position="static">
          <Toolbar
