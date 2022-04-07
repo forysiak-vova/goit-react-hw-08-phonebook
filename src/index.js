@@ -23,7 +23,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/oit-react-hw-08-phonebook/">
+        <BrowserRouter basename="/goit-react-hw-08-phonebook/">
           <ThemeProvider theme={theme}>
         <App />
           </ThemeProvider>
