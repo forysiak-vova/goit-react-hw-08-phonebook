@@ -76,7 +76,7 @@ const App = () => {
            
          
          {/* </Route> */}
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<HomeContacts to="/" />} />
                </Routes>
              </Suspense>
        <Toaster position="top-right"/>
