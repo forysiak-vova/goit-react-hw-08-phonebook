@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Navigate, Routes, Route, Router  } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import AppBarr from 'component/AppBar';
@@ -35,7 +35,7 @@ const App = () => {
        isFetchingCurrentUse ? <Loader type="hourglass" bgColor={"#000"} title={"loading..."} color={'#FFFFFF'} size={100}/> : (
          <>
            <AppBarr />
-           <Suspense fallback={<Loader type="hourglass" bgColor={"#000"} title={"loading..."} color={'#FFFFFF'} size={100}/>}>
+           <Suspense fallback={<Loader type="hourglass" bgColor={"#000"} title={"loading..."} color={'#FFFFFF'} size={100} />}>
            <Routes>
                {/* <Route path="/" element={<AppBar />}> */}
               <Route path="/"
@@ -51,7 +51,8 @@ const App = () => {
                  component={<Contacts />}
                  navigateTo="/login"
                />  
-               }/>
+                 } />
+               
            
            <Route
              path='/register'
@@ -75,8 +76,8 @@ const App = () => {
            
          
          {/* </Route> */}
-        
-             </Routes>
+          <Route path="*" element={<Navigate to="/" />} />
+               </Routes>
              </Suspense>
        <Toaster position="top-right"/>
        </>
