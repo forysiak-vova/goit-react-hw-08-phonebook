@@ -11,7 +11,7 @@ const Filter = () => {
    return (
       <Label>
          <TextField
-            label='Find contacts by name:t'
+            label='Find contacts by name'
          type='text'
             value={value}
             onChange={(e) => dispatch(changeFilter(e.currentTarget.value))}

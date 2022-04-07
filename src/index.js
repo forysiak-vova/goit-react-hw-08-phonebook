@@ -5,7 +5,7 @@ import App from "./App";
 import 'modern-normalize/modern-normalize.css';
 import {store, persistor} from './redux/store'
 import { Provider } from "react-redux";
-import { HashRouter } from 'react-router-dom'
+import { HashRouter, BrowserRouter } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider, createTheme } from '@mui/material';
 
@@ -23,11 +23,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <HashRouter>
+        <BrowserRouter>
           <ThemeProvider theme={theme}>
         <App />
           </ThemeProvider>
-        </HashRouter>
+        </BrowserRouter>
         </PersistGate>
     </Provider>
   </React.StrictMode>,

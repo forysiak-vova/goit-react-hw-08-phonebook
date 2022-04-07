@@ -29,7 +29,7 @@ const Form = ({contacts}) => {
   const handelSubmit = e => {
      e.preventDefault();
 //  createContact({name,number}).then(console.log)
-         const ReturnName = contacts.find(contact => contact.name === name);
+         const ReturnName = contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
 
     if (ReturnName) {
       alert('This name is already in the phone book ');

@@ -15,8 +15,7 @@ const Contacts = () => {
   
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();
-    const visibleContacts = data.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter),
+    const visibleContacts = data.filter(({ name }) => name.toLowerCase().includes(normalizedFilter),
     );
     return visibleContacts;
   };
