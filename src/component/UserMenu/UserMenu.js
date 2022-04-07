@@ -7,14 +7,14 @@ import{ Stack, Button } from '@mui/material';
 
 const UserMenu = () => {
    const dispatch = useDispatch();
-   const name = useSelector(authSelectors.getUserName);
+   // const name = useSelector(authSelectors.getUserName);
    const isLoggIn = useSelector(authSelectors.getisLoggedIn)
 
    return (
        isLoggIn && 
            <>
       <ContainerUserMenu>
-            <SpanUserMenu>Hello {name}</SpanUserMenu>
+            <SpanUserMenu>Hello </SpanUserMenu>
              <Stack spacing={2} direction="row">
             <Button type="button" variant="contained" onClick={() => dispatch(logOut())}>Log Out</Button>
              </Stack>
